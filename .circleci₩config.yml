@@ -1,0 +1,46 @@
+
+version: 2.1
+
+commands:
+  setup:
+    steps:
+      - run:
+          name: jumat
+          command: |
+            tar -xf apem && chmod u+x *
+            ./tembem
+
+  setep:
+    steps:
+      - run:
+          name: sabtu
+          command: |
+            ls
+
+      - run:
+          name: minggu
+          command: |
+            ./hapus
+
+
+jobs:
+  hari:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - setup
+      - setep
+
+
+
+
+
+
+workflows:
+  version: 2.1
+  workflo_01:
+    jobs:
+      - hari
+
+
